@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldhru Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8f9fc] text-gray-800 font-sans">
+
+    <header class="pt-6 px-6 max-w-6xl mx-auto flex justify-between items-center relative z-10">
+        <div class="flex items-center gap-2">
+            <img src="logo.png" alt="Logo" class="h-12 w-12 rounded-full shadow-md border-2 border-white" onerror="this.style.display='none'">
+            <h1 class="text-2xl font-black text-gray-900 tracking-tight">Aldhru<span class="text-purple-600">Academy</span></h1>
+        </div>
+        <nav class="hidden md:flex gap-8 font-bold text-gray-600">
+            <a href="#products" class="hover:text-purple-600">Courses</a>
+            <a href="#contact" class="hover:text-purple-600">Support</a>
+        </nav>
+    </header>
+
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-purple-400 via-pink-300 to-red-300 rounded-full blur-[100px] opacity-30 -z-10"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-black text-gray-900 mb-6 leading-tight">Crush your VMOU Exams with <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Premium Guides.</span></h2>
+            <p class="text-xl text-gray-600 mb-8 font-medium">Highly-accurate solved question booklets delivered straight to your inbox.</p>
+        </div>
+    </section>
+
+    <section id="products" class="max-w-6xl mx-auto px-6 -mt-16 relative z-10">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-purple-100 border border-purple-50">
+                <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">Top Rated</span>
+                <h4 class="text-2xl font-bold text-gray-900 mt-6 mb-3">QCA: Elementary Computer Apps</h4>
+                <p class="text-gray-600 mb-8 leading-relaxed">Top 220 most repeated VMOU questions with detailed Hindi explanations. The ultimate 100% Pass Guarantee format.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-gray-900">₹49</span>
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition transform hover:-translate-y-1">Get Digital PDF</button>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100">
+                <span class="bg-gray-200 text-gray-700 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider">PG Guide</span>
+                <h4 class="text-2xl font-bold text-gray-900 mt-6 mb-3">MAGE-03: Economic Geography</h4>
+                <p class="text-gray-600 mb-8 leading-relaxed">Comprehensive solved guide for M.A. Geography covering all short and long answer sections from recent academic years.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-gray-900">₹79</span>
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition transform hover:-translate-y-1">Get Digital PDF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="bg-gray-900 rounded-3xl p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full blur-[80px] opacity-40"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                <div>
+                    <h3 class="text-3xl font-black mb-8">Need Support?</h3>
+                    <div class="bg-gray-800/50 p-6 rounded-2xl backdrop-blur-sm border border-gray-700 inline-block">
+                        <p class="text-gray-400 mb-1 text-sm font-bold uppercase tracking-wider">Legal Entity</p>
+                        <p class="text-xl font-bold mb-6">Aldhru Academy</p>
+                        
+                        <p class="text-gray-400 mb-1 text-sm font-bold uppercase tracking-wider">Email Us</p>
+                        <a href="mailto:support@aldhruacademy.com" class="text-xl font-bold text-purple-400 hover:text-purple-300">support@aldhruacademy.com</a>
+                    </div>
+                </div>
+
+                <div id="policies" class="space-y-6 text-sm text-gray-300">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Compliance & Policies</h3>
+                    <p><strong class="text-white">1. Pricing & Delivery:</strong> Digital PDFs range from ₹49 to ₹199. Access is delivered via email immediately upon successful payment verification.</p>
+                    <p><strong class="text-white">2. Refunds:</strong> No refunds post-download due to digital nature. For duplicate charges or file errors, email within 3 days. Refunds process in 5-7 days.</p>
+                    <p><strong class="text-white">3. T&C:</strong> Materials are for personal study only. Resale or redistribution is strictly prohibited.</p>
+                    <p><strong class="text-white">4. Privacy:</strong> We collect Name & Email strictly for delivery and payment processing via Razorpay. We do not sell your data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
