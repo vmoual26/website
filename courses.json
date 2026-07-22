@@ -674,21 +674,28 @@
     {
         "degree": "MAHD",
         "code": "MAHD-01",
-        "title": "MAHD-01",
+        "title": "MAHD-01: प्राचीन एवं मध्यकालीन काव्य",
         "link": "https://superprofile.bio/vp/mahd-01",
         "price": "₹49"
     },
     {
         "degree": "MAHD",
+        "code": "MAHD-02",
+        "title": "MAHD-02: आधुनिक काव्य",
+        "link": "https://superprofile.bio/vp/mahd02",
+        "price": "₹49"
+    },
+    {
+        "degree": "MAHD",
         "code": "MAHD-03",
-        "title": "MAHD-03",
+        "title": "MAHD-03:हिन्दी साहित्य का इतिहास",
         "link": "https://superprofile.bio/vp/mahd-03",
         "price": "₹49"
     },
     {
         "degree": "MAHD",
         "code": "MAHD-04",
-        "title": "MAHD-04",
+        "title": "MAHD-04: काव्यशास्त्र व समालोचना",
         "link": "https://superprofile.bio/vp/mahd-04",
         "price": "₹49"
     },
