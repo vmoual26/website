@@ -223,6 +223,12 @@
     },
     {
         "degree": "BA",
+        "code": "QCA",
+        "title": "प्रारंभिक कंप्यूटर अनुप्रयोग",
+        "link": "https://superprofile.bio/vp/vmou_qca"
+    },
+    {
+        "degree": "BA",
         "code": "EC-01",
         "title": "EC-01",
         "link": "https://superprofile.bio/vp/ec-01"
