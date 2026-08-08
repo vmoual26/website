@@ -45,6 +45,11 @@
                     <input type="text" class="buyer-name-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
                     <p class="name-error hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
                 </div>
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपकी ईमेल आईडी (PDF इसी पर भेजी जाएगी) *</label>
+                    <input type="email" class="buyer-email-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: rohit@gmail.com">
+                    <p class="email-error hidden text-red-600 text-xs font-bold mt-1">कृपया सही ईमेल आईडी दर्ज करें</p>
+                </div>
                 <button type="button" class="buy-now-btn w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
                     अभी खरीदें ➔
                 </button>
@@ -98,6 +103,11 @@
                     <input type="text" class="buyer-name-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
                     <p class="name-error hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
                 </div>
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपकी ईमेल आईडी (PDF इसी पर भेजी जाएगी) *</label>
+                    <input type="email" class="buyer-email-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: rohit@gmail.com">
+                    <p class="email-error hidden text-red-600 text-xs font-bold mt-1">कृपया सही ईमेल आईडी दर्ज करें</p>
+                </div>
 
                 <button type="button" class="buy-now-btn w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
                     अभी खरीदें ➔
@@ -136,10 +146,14 @@
             document.querySelectorAll('.payment-success-msg').forEach(function(el) { el.classList.remove('hidden'); });
         }
 
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
         document.querySelectorAll('.checkout-form').forEach(function(form) {
             var btn = form.querySelector('.buy-now-btn');
             var nameInput = form.querySelector('.buyer-name-input');
             var nameError = form.querySelector('.name-error');
+            var emailInput = form.querySelector('.buyer-email-input');
+            var emailError = form.querySelector('.email-error');
             var checkoutError = form.querySelector('.checkout-error');
 
             function resetButton() {
@@ -155,11 +169,18 @@
 
             btn.addEventListener('click', function() {
                 var name = nameInput.value.trim();
+                var email = emailInput.value.trim();
                 nameError.classList.add('hidden');
+                emailError.classList.add('hidden');
                 checkoutError.classList.add('hidden');
                 if (!name) {
                     nameError.classList.remove('hidden');
                     nameInput.focus();
+                    return;
+                }
+                if (!EMAIL_RE.test(email)) {
+                    emailError.classList.remove('hidden');
+                    emailInput.focus();
                     return;
                 }
 
@@ -169,7 +190,7 @@
                 fetch(ORDER_ENDPOINT, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name})
+                    body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name, buyer_email: email})
                 })
                 .then(function(res) { return res.json(); })
                 .then(function(data) {
@@ -181,7 +202,7 @@
                         order_id: data.order_id,
                         name: 'Aldhru Academy',
                         description: SUBJECT_CODE + ' Premium Booklet',
-                        prefill: { name: name },
+                        prefill: { name: name, email: email },
                         theme: { color: '#9333ea' },
                         handler: showSuccess,
                         modal: { ondismiss: resetButton }
