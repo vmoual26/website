@@ -27,6 +27,33 @@
         <p class="text-gray-600 mt-3 font-bold text-lg">चाहे एग्जाम कल हो — सिर्फ 53 पेज़, 1-2 दिन में पूरी तैयारी! 📖</p>
     </section>
 
+    <section class="max-w-3xl mx-auto px-6 pb-6">
+        <div class="bg-white border-2 border-purple-100 rounded-[2rem] shadow-xl shadow-purple-100 p-6 md:p-8">
+            <div class="flex items-end justify-center gap-3 mb-5">
+                <span class="text-3xl font-black text-gray-900">₹49</span>
+                <span class="text-lg text-gray-400 line-through mb-0.5">₹70</span>
+            </div>
+
+            <div class="payment-success-msg hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
+                <p class="font-black text-green-700 text-lg">✅ पेमेंट सफल!</p>
+                <p class="text-gray-700 mt-1 text-sm">आपकी PDF 5 मिनट के भीतर आपकी ईमेल पर भेज दी जाएगी। कृपया inbox के साथ spam/promotions फोल्डर भी ज़रूर चेक करें।</p>
+            </div>
+
+            <div class="checkout-form">
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम (booklet पर पर्सनलाइज़ेशन के लिए ज़रूरी) *</label>
+                    <input type="text" class="buyer-name-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
+                    <p class="name-error hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
+                </div>
+                <button type="button" class="buy-now-btn w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
+                    अभी खरीदें ➔
+                </button>
+                <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
+                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="max-w-3xl mx-auto px-6 pb-8">
         <div class="bg-white border-2 border-purple-100 rounded-[2rem] shadow-xl shadow-purple-100 p-8 md:p-10">
 
@@ -55,29 +82,27 @@
                 </div>
             </div>
 
-            <p class="text-center text-gray-600 font-bold mb-2">चाहे एग्जाम कल हो — सिर्फ 53 पेज़, 1-2 दिन में पूरी तैयारी! 📖</p>
-
             <div class="flex items-end justify-center gap-3 mb-6">
                 <span class="text-4xl font-black text-gray-900">₹49</span>
                 <span class="text-xl text-gray-400 line-through mb-1">₹70</span>
             </div>
 
-            <div id="payment-success-msg" class="hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
+            <div class="payment-success-msg hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
                 <p class="font-black text-green-700 text-lg">✅ पेमेंट सफल!</p>
                 <p class="text-gray-700 mt-1 text-sm">आपकी PDF 5 मिनट के भीतर आपकी ईमेल पर भेज दी जाएगी। कृपया inbox के साथ spam/promotions फोल्डर भी ज़रूर चेक करें।</p>
             </div>
 
-            <div id="checkout-form">
+            <div class="checkout-form">
                 <div class="mb-4 text-left">
-                    <label for="buyer-name-input" class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम (booklet पर पर्सनलाइज़ेशन के लिए ज़रूरी) *</label>
-                    <input type="text" id="buyer-name-input" placeholder="जैसे: Rohit Sharma" class="w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium">
-                    <p id="name-error" class="hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम (booklet पर पर्सनलाइज़ेशन के लिए ज़रूरी) *</label>
+                    <input type="text" class="buyer-name-input w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
+                    <p class="name-error hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
                 </div>
 
-                <button id="buy-now-btn" type="button" class="w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
+                <button type="button" class="buy-now-btn w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
                     अभी खरीदें ➔
                 </button>
-                <p id="checkout-error" class="hidden text-red-600 text-sm font-bold text-center mt-3"></p>
+                <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
                 <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
             </div>
         </div>
@@ -101,66 +126,75 @@
     (function() {
         var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
         var SUBJECT_CODE = "MAED-09";
-        var btn = document.getElementById('buy-now-btn');
-        var nameInput = document.getElementById('buyer-name-input');
-        var nameError = document.getElementById('name-error');
-        var checkoutError = document.getElementById('checkout-error');
 
-        function resetButton() {
-            btn.disabled = false;
-            btn.textContent = 'अभी खरीदें ➔';
+        // The page has 2 identical buy sections (top, for someone ready to
+        // buy immediately, and bottom, for someone who reads through first)
+        // - wired via shared classes rather than unique IDs so either one
+        // works independently and a successful payment resolves both.
+        function showSuccess() {
+            document.querySelectorAll('.checkout-form').forEach(function(el) { el.classList.add('hidden'); });
+            document.querySelectorAll('.payment-success-msg').forEach(function(el) { el.classList.remove('hidden'); });
         }
 
-        function showError(msg) {
-            checkoutError.textContent = msg;
-            checkoutError.classList.remove('hidden');
-            resetButton();
-        }
+        document.querySelectorAll('.checkout-form').forEach(function(form) {
+            var btn = form.querySelector('.buy-now-btn');
+            var nameInput = form.querySelector('.buyer-name-input');
+            var nameError = form.querySelector('.name-error');
+            var checkoutError = form.querySelector('.checkout-error');
 
-        btn.addEventListener('click', function() {
-            var name = nameInput.value.trim();
-            nameError.classList.add('hidden');
-            checkoutError.classList.add('hidden');
-            if (!name) {
-                nameError.classList.remove('hidden');
-                nameInput.focus();
-                return;
+            function resetButton() {
+                btn.disabled = false;
+                btn.textContent = 'अभी खरीदें ➔';
             }
 
-            btn.disabled = true;
-            btn.textContent = 'कृपया प्रतीक्षा करें...';
-
-            fetch(ORDER_ENDPOINT, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name})
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
-                var rzp = new Razorpay({
-                    key: data.key_id,
-                    amount: data.amount,
-                    currency: data.currency,
-                    order_id: data.order_id,
-                    name: 'Aldhru Academy',
-                    description: SUBJECT_CODE + ' Premium Booklet',
-                    prefill: { name: name },
-                    theme: { color: '#9333ea' },
-                    handler: function(response) {
-                        document.getElementById('checkout-form').classList.add('hidden');
-                        document.getElementById('payment-success-msg').classList.remove('hidden');
-                    },
-                    modal: { ondismiss: resetButton }
-                });
-                rzp.on('payment.failed', function() {
-                    showError('पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।');
-                });
-                rzp.open();
+            function showError(msg) {
+                checkoutError.textContent = msg;
+                checkoutError.classList.remove('hidden');
                 resetButton();
-            })
-            .catch(function() {
-                showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।');
+            }
+
+            btn.addEventListener('click', function() {
+                var name = nameInput.value.trim();
+                nameError.classList.add('hidden');
+                checkoutError.classList.add('hidden');
+                if (!name) {
+                    nameError.classList.remove('hidden');
+                    nameInput.focus();
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.textContent = 'कृपया प्रतीक्षा करें...';
+
+                fetch(ORDER_ENDPOINT, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name})
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+                    var rzp = new Razorpay({
+                        key: data.key_id,
+                        amount: data.amount,
+                        currency: data.currency,
+                        order_id: data.order_id,
+                        name: 'Aldhru Academy',
+                        description: SUBJECT_CODE + ' Premium Booklet',
+                        prefill: { name: name },
+                        theme: { color: '#9333ea' },
+                        handler: showSuccess,
+                        modal: { ondismiss: resetButton }
+                    });
+                    rzp.on('payment.failed', function() {
+                        showError('पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।');
+                    });
+                    rzp.open();
+                    resetButton();
+                })
+                .catch(function() {
+                    showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।');
+                });
             });
         });
     })();
