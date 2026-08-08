@@ -60,10 +60,24 @@
                 <span class="text-xl text-gray-400 line-through mb-1">₹70</span>
             </div>
 
-            <a href="https://rzp.io/rzp/rNBvpJFN" class="w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105">
-                अभी खरीदें ➔
-            </a>
-            <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
+            <div id="payment-success-msg" class="hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
+                <p class="font-black text-green-700 text-lg">✅ पेमेंट सफल!</p>
+                <p class="text-gray-700 mt-1 text-sm">आपकी PDF 5 मिनट के भीतर आपकी ईमेल पर भेज दी जाएगी। कृपया inbox के साथ spam/promotions फोल्डर भी ज़रूर चेक करें।</p>
+            </div>
+
+            <div id="checkout-form">
+                <div class="mb-4 text-left">
+                    <label for="buyer-name-input" class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम (booklet पर पर्सनलाइज़ेशन के लिए ज़रूरी) *</label>
+                    <input type="text" id="buyer-name-input" placeholder="जैसे: Rohit Sharma" class="w-full border-2 border-purple-200 focus:border-purple-500 outline-none rounded-xl px-4 py-3 text-base font-medium">
+                    <p id="name-error" class="hidden text-red-600 text-xs font-bold mt-1">कृपया अपना पूरा नाम दर्ज करें</p>
+                </div>
+
+                <button id="buy-now-btn" type="button" class="w-full block text-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100">
+                    अभी खरीदें ➔
+                </button>
+                <p id="checkout-error" class="hidden text-red-600 text-sm font-bold text-center mt-3"></p>
+                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
+            </div>
         </div>
     </section>
 
@@ -79,6 +93,76 @@
             <p class="mt-6 text-gray-500 text-xs">&copy; 2026 Aldhru Academy. सर्वाधिकार सुरक्षित (All Rights Reserved).</p>
         </div>
     </section>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+    (function() {
+        var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
+        var SUBJECT_CODE = "MAED-14";
+        var btn = document.getElementById('buy-now-btn');
+        var nameInput = document.getElementById('buyer-name-input');
+        var nameError = document.getElementById('name-error');
+        var checkoutError = document.getElementById('checkout-error');
+
+        function resetButton() {
+            btn.disabled = false;
+            btn.textContent = 'अभी खरीदें ➔';
+        }
+
+        function showError(msg) {
+            checkoutError.textContent = msg;
+            checkoutError.classList.remove('hidden');
+            resetButton();
+        }
+
+        btn.addEventListener('click', function() {
+            var name = nameInput.value.trim();
+            nameError.classList.add('hidden');
+            checkoutError.classList.add('hidden');
+            if (!name) {
+                nameError.classList.remove('hidden');
+                nameInput.focus();
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'कृपया प्रतीक्षा करें...';
+
+            fetch(ORDER_ENDPOINT, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name})
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+                var rzp = new Razorpay({
+                    key: data.key_id,
+                    amount: data.amount,
+                    currency: data.currency,
+                    order_id: data.order_id,
+                    name: 'Aldhru Academy',
+                    description: SUBJECT_CODE + ' Premium Booklet',
+                    prefill: { name: name },
+                    theme: { color: '#9333ea' },
+                    handler: function(response) {
+                        document.getElementById('checkout-form').classList.add('hidden');
+                        document.getElementById('payment-success-msg').classList.remove('hidden');
+                    },
+                    modal: { ondismiss: resetButton }
+                });
+                rzp.on('payment.failed', function() {
+                    showError('पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।');
+                });
+                rzp.open();
+                resetButton();
+            })
+            .catch(function() {
+                showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
